@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.util.Scanner;
 
 /**
  *
@@ -19,8 +20,13 @@ public class Ap2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SocketException, IOException{
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite seu nome:");
+        String nome = sc.nextLine();
         DatagramSocket datagramSocket = new DatagramSocket(2222);
         
+        String line = null;
+        do {
         byte[] buf = new byte[100];
         
         DatagramPacket datagramPacket = new DatagramPacket(buf, buf.length);
@@ -29,12 +35,12 @@ public class Ap2 {
        
         System.out.println(new String(
                 datagramPacket.getData()));
-        
-        
-        buf = "Tudo bem.".getBytes();
+                
+        buf = (nome + ":" + sc.nextLine()).getBytes();
         
         datagramPacket = new DatagramPacket(buf, buf.length, datagramPacket.getAddress(), datagramPacket.getPort());
         
         datagramSocket.send(datagramPacket);
+        } while (true);
     }
 }
