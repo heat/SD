@@ -26,7 +26,7 @@ public class Ap1 {
         Scanner sc = new Scanner(System.in);
         
         DatagramSocket datagramSocket = new DatagramSocket();
-        
+        System.out.println("Digite seu nome:");
         String nome = sc.nextLine();
         
         String line = null;
