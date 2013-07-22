@@ -21,5 +21,9 @@ public class Ap2Tcp {
 		String msg = new String(buff);
 
 		System.out.println(msg);
+
+		o.write("Mensagem".getBytes());
+
+		s.close();
 	}
 }

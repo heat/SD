@@ -19,5 +19,12 @@ public class Ap1Tcp {
 
 		o.write(
 			msg.getBytes());
+
+		byte[] buf = new byte[10];
+		i.read(buf);
+
+		System.out.println(new String(buf));
+
+		server.close();
 	}
 }
